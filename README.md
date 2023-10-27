@@ -2,7 +2,7 @@
 CP3- Computational Thinking Using Phyton
 
 # Descrição
-Somos uma empresa que criou um software para gerenciamento de eventos.Em nosso sistema é possivel:
+Somos uma empresa que criou um software para gerenciamento de eventos.Em nosso sistema é possivel:<br>
 -Adicionar eventos
 -Reservar vagas
 -Cancelar reservas
