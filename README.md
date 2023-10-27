@@ -10,7 +10,7 @@ Somos uma empresa que criou um software para gerenciamento de eventos.Em nosso s
 (Sistema de programado em lingugem Python)
 
 # Colaboradores
-Esse Projeto foi produzido por:
-Larissa Lopes Oliveira - Scrum Master e Desenvolvedora
-Luna Faustino Lima - Desenvolvedora
+Esse Projeto foi produzido por:<br>
+Larissa Lopes Oliveira - Scrum Master e Desenvolvedora<br>
+Luna Faustino Lima - Desenvolvedora<br>
 Pedro Luiz Prado - Desenvolvedor
