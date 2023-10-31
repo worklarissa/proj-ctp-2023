@@ -14,9 +14,38 @@ eventos = {
 }
 
 def menu(): 
-    """Menu inicial de input, vai receber um int para selecionar 
-    um dos serviços que vamos ter"""
-    pass
+    print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
+        "Para adicionar um evento - Digite 1\n" 
+        "Para lista os eventos adicionados em nosso sistema - Digite 2\n"
+        "Para comprar um ingresso - Digite 3\n"
+        "Para cancelar a compra de um ingresso - Digite 4\n"
+        "Para visualizar detalhes de um evento - Digite 5\n"
+        "Para salvar dados do sistema em um arquivo - Digite 6\n"
+        "Para carregar um arquivo no sistema  - Digite 7\n")
+    entrada =  input("Digite um número de 1 a 7 de acordo com o menu: ")
+
+    if entrada == "1":
+        return criar_evento
+    elif entrada == "2":
+        return listar_eventos
+    elif entrada == "3":
+            return reservar_vaga
+    elif entrada == "4":
+            return cancelar_reserva
+    elif entrada == "5":
+            return visualizar_detalhes_evento
+    elif entrada == "6":
+            return salvar_dados
+    elif entrada == "7":
+            return carregar_dados
+    else:
+        print('Opção inválida!')
+        return menu
+
+
+
+
+   
 
 def criar_evento (): 
     """Criar_Evento, permite o usuário a criar um novo evento,
@@ -63,3 +92,5 @@ def carregar_dados ():
                              
 if __name__ == "__main__":
     menu()
+
+    pass
