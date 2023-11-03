@@ -48,9 +48,9 @@ def visualizar_detalhes_evento(eventos):
     """exibe os seguintes dados do evento: nome, data, localização, capacidade e vagas disponíveis"""
     agenda = dict(sorted(eventos.items()))
     print("DETALHE DOS EVENTOS")
-    for nome, contato in agenda.items():
+    for nome, evento in agenda.items():
         print(f"\nNome: {nome}")
-        for tipo, valor in contato.items():
+        for tipo, valor in evento.items():
             print(f"{tipo}: {valor}")
 
                            
