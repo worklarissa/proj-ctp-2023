@@ -44,35 +44,54 @@ def cancelar_reserva ():
                  
     
 
-def visualizar_detalhes_evento ():
+def visualizar_detalhes_evento(eventos):
     """exibe os seguintes dados do evento: nome, data, localização, capacidade e vagas disponíveis"""
-    pass
+    agenda = dict(sorted(eventos.items()))
+    print("DETALHE DOS EVENTOS")
+    for nome, contato in agenda.items():
+        print(f"\nNome: {nome}")
+        for tipo, valor in contato.items():
+            print(f"{tipo}: {valor}")
+
                            
-def salvar_dados(agenda, arquivo):
-    """Essa função salva a agenda em um arquivo .json"""
+def salvar_dados(eventos, arquivo):
+    """Essa função salva os eventos em um arquivo .json"""
     try:
-        with open('agenda.json', 'w') as a:
-            json.dump(agenda, a)
-        print(f"A agenda de eventos foi salva com sucesso em {arquivo}")
+        with open('eventos.json', 'w') as a:
+            json.dump(eventos, a)
+        print(f"Os eventos foram salvos com sucesso em {arquivo}")
     except:
-        print("Ocorreu um erro ao tentar salvar a agenda!")
+        print("Ocorreu um erro ao tentar salvar os eventos!")
 
                             
 def carregar_dados(arquivo):
     """Essa função carrega os dados do sistema a partir de um arquivo .json. Confirma que os dados foram carregados com sucesso, informa erros para aquivos inexistentes ou corrompidos"""
     try:
-        with open('agenda.json','r') as a:
+        with open('evento.json','r') as a:
             json.load(a)
-        print(f"A agenda foi carregada com sucesso a partir de {arquivo}!")
+        print(f"Os eventos foram carregados com sucesso a partir de {arquivo}!")
     except FileNotFoundError:
-        print(f"Arquivo {arquivo} não foi encontrado!")
+        print(f"O arquivo {arquivo} não foi encontrado!")
     except:
-        print("Ocorreu um erro ao tentar carregar a agenda")
+        print("Ocorreu um erro ao tentar carregar os eventos")
 
 def menu(): 
-    """Menu inicial de input, vai receber um int para selecionar 
-    um dos serviços que vamos ter"""
-    pass
+    while True:
+        user_op = input("Escolha uma opção:")
+
+        if user_op == "1":
+            arquivo = input('Dê um nome para o arquivo em que os eventos serão salvos: ')
+            salvar_dados(eventos,arquivo)
+
+        elif user_op == "2":
+            arquivo = input('Qual o nome do arquivo que você gostaria de importar? ')
+            carregar_dados(arquivo)
+
+        elif user_op == "3":
+            visualizar_detalhes_evento(eventos)
+
+        else:
+            break
 
                              
 if __name__ == "__main__":
