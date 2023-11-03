@@ -1,4 +1,6 @@
 #Divisão de tarefas 
+import json
+
 eventos = {
     "Rock in Rio": {
             "Data":"12/12/2023",
@@ -12,11 +14,6 @@ eventos = {
     },
 
 }
-
-def menu(): 
-    """Menu inicial de input, vai receber um int para selecionar 
-    um dos serviços que vamos ter"""
-    pass
 
 def criar_evento (): 
     """Criar_Evento, permite o usuário a criar um novo evento,
@@ -48,16 +45,33 @@ def cancelar_reserva ():
     
 
 def visualizar_detalhes_evento ():
-    """Exibe detalhes de um evento. Dados que deverá exibir: nome,
-      data, localização, capacidade e vagas disponíveis. Retorna esses detalhes"""
+    """exibe os seguintes dados do evento: nome, data, localização, capacidade e vagas disponíveis"""
     pass
                            
-def salvar_dados ():
-    """salva todos os dados do sistema (eventos, reservas e etc.) de um arquivo """
-    pass
+def salvar_dados(agenda, arquivo):
+    """Essa função salva a agenda em um arquivo .json"""
+    try:
+        with open('agenda.json', 'w') as a:
+            json.dump(agenda, a)
+        print(f"A agenda de eventos foi salva com sucesso em {arquivo}")
+    except:
+        print("Ocorreu um erro ao tentar salvar a agenda!")
+
                             
-def carregar_dados ():
-    """carrega os dados do sistema a partir de um arquivo. Deve confirmar que os dados foram carregados, incluir erros para arquivo inexistente ou corrompido"""
+def carregar_dados(arquivo):
+    """Essa função carrega os dados do sistema a partir de um arquivo .json. Confirma que os dados foram carregados com sucesso, informa erros para aquivos inexistentes ou corrompidos"""
+    try:
+        with open('agenda.json','r') as a:
+            json.load(a)
+        print(f"A agenda foi carregada com sucesso a partir de {arquivo}!")
+    except FileNotFoundError:
+        print(f"Arquivo {arquivo} não foi encontrado!")
+    except:
+        print("Ocorreu um erro ao tentar carregar a agenda")
+
+def menu(): 
+    """Menu inicial de input, vai receber um int para selecionar 
+    um dos serviços que vamos ter"""
     pass
 
                              
