@@ -3,15 +3,18 @@ eventos = {
     "Rock in Rio": {
             "Data":"12/12/2023",
             "Capacidade":"10,000",
-            "Localização":"Neo Química Arena"
+            "Localização":"Neo Química Arena",
+            "Ingressos":500
     },
     "Lolapalooza": {
             "Data":"15/01/2024",
             "Capacidade":"15,000",
-            "Localização": "Maracanã"
+            "Localização": "Maracanã",
+            "Ingressos":0
     }
 
-}
+} 
+ 
 
 
 # def menu():
@@ -31,36 +34,54 @@ eventos = {
     com todas as informações básicas.Apenas exibir lista de 
     eventos formatada com detalhes."""    
     
-    
-             
+
+
+       
 
 def reservar_vaga(eventos):
-    ingresso = input("Digite o nome do evento: ")
-    while ingresso == eventos:
-        if ingresso == True:
-            print(f"Você selecionou o o ingresso para o {ingresso}")
+    ingresso=""
+    resposta= "sim"
+    reservas=[]
+    while resposta =="sim":
+        ingresso = input("Digite o nome do evento: ")
+        if ingresso in eventos:
+            if eventos[ingresso]["Ingressos"]>0:
+                reservas.append(ingresso)
+                print(f"Você selecionou o o ingresso para o {ingresso}")
+                eventos[ingresso]["Ingressos"]-=1
+                print(f"Você concluiu a reserva com sucesso o número de reserva é  {eventos[ingresso]['Ingressos']}")
+                resposta= input("Você deseja continuar comprando?: (sim/não)")
+            elif eventos[ingresso]["Ingressos"]<=0:
+                print("Sem ingressos!")
+
         else:
             print("Opção inválida!")
-            return reservar_vaga
+    
+    return reservas
+
+print(eventos)
+reserva=reservar_vaga(eventos)                      
+print(reserva)                      
+def cancelar_reserva (reserva): 
+    resposta="sim"
+    cancelar=""
+    print(f"Você tem reservas para o {reserva}")
+    while resposta =="sim":
+        cancelar=input("Qual reserva você deseja cancelar?: ")
+        if cancelar in reserva:
+            reserva.remove(cancelar)
+            eventos[cancelar]["Ingressos"]+=1
+            print("Você cancelou com sucesso!")
+            resposta= input("Você deseja cancelar mais alguma reserva?:(sim/não)")
+        else:
+            print("Você não tem nenhuma reserva deste evento!")
+    return reserva
+ 
+cancelar_reserva(reserva)
         
-reservar_vaga()
-
-    
-    
-    
-    
-    
-    
-    
-    
+   
 
 
-
-                         
-                        
-# def cancelar_reserva (): 
-"""Permite o usuário remover uma reserva. Necessário dados 
-     do evento e confirmação do cancelamento"""
     
                  
     
