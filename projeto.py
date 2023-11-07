@@ -57,7 +57,7 @@ def visualizar_detalhes_evento(eventos):
 def salvar_dados(eventos, arquivo):
     """Essa função salva os eventos em um arquivo .json"""
     try:
-        with open('eventos.json', 'w') as a:
+        with open('eventos.json', 'w') as a: #salvar a variável do arquivo
             json.dump(eventos, a)
         print(f"Os eventos foram salvos com sucesso em {arquivo}")
     except:
