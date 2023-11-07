@@ -13,46 +13,24 @@ eventos = {
 
 }
 
-def menu(): 
-    print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
-        "Para adicionar um evento - Digite 1\n" 
-        "Para lista os eventos adicionados em nosso sistema - Digite 2\n"
-        "Para comprar um ingresso - Digite 3\n"
-        "Para cancelar a compra de um ingresso - Digite 4\n"
-        "Para visualizar detalhes de um evento - Digite 5\n"
-        "Para salvar dados do sistema em um arquivo - Digite 6\n"
-        "Para carregar um arquivo no sistema  - Digite 7\n")
-    entrada =  input("Digite um número de 1 a 7 de acordo com o menu: ")
-
-    if entrada == "1":
-        return criar_evento
-    elif entrada == "2":
-        return listar_eventos
-    elif entrada == "3":
-            return reservar_vaga
-    elif entrada == "4":
-            return cancelar_reserva
-    elif entrada == "5":
-            return visualizar_detalhes_evento
-    elif entrada == "6":
-            return salvar_dados
-    elif entrada == "7":
-            return carregar_dados
-    else:
-        print('Opção inválida!')
-        return menu
-
-
-
-
-   
-
 def criar_evento (): 
     """Criar_Evento, permite o usuário a criar um novo evento,
     fornecendo, nome,data, capacidade e localização 
     temos que criar um dicionário pra cada evento e armazenar no sistema. """
+    nome_evento = input("Nome do evento: ")
+    if nome_evento not in eventos:
+        dt_evento = input ("Data do evento: ")
+        cap_evento = int (input("Quantas pessoas podem participar? "))
+    if cap_evento != int:
+        print ('A quantidade de pessoas precisa ser um valor inteiro!')
+    else:
+        loc_evento = input("Local do evento: ")
 
-    pass
+    if dt_evento and loc_evento not in eventos:
+        eventos[nome_evento] = {"Data":dt_evento,"Capacidade":cap_evento,"Localização":loc_evento}
+    else:
+        print('A data e o local coincidem com de outro evento! Por favor, crie um outro evento com outra data e local')
+
 
 def  listar_eventos ():
     """Exibe uma lista de todos os eventos dísponives 
@@ -91,6 +69,31 @@ def carregar_dados ():
 
                              
 if __name__ == "__main__":
-    menu()
+    def menu():
+        print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
+        "Para adicionar um evento - Digite 1\n" 
+        "Para lista os eventos adicionados em nosso sistema - Digite 2\n"
+        "Para comprar um ingresso - Digite 3\n"
+        "Para cancelar a compra de um ingresso - Digite 4\n"
+        "Para visualizar detalhes de um evento - Digite 5\n"
+        "Para salvar dados do sistema em um arquivo - Digite 6\n"
+        "Para carregar um arquivo no sistema  - Digite 7\n")
+    entrada =  input("Digite um número de 1 a 7 de acordo com o menu: ")
 
-    pass
+    if entrada == "1":
+        return criar_evento
+    elif entrada == "2":
+        return listar_eventos
+    elif entrada == "3":
+            return reservar_vaga
+    elif entrada == "4":
+            return cancelar_reserva
+    elif entrada == "5":
+            return visualizar_detalhes_evento
+    elif entrada == "6":
+            return salvar_dados
+    elif entrada == "7":
+            return carregar_dados
+    else:
+        print('Opção inválida!')
+        return menu
