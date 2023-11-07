@@ -69,7 +69,7 @@ def carregar_dados ():
 
                              
 if __name__ == "__main__":
-    def menu():
+    def menu(criar_evento, listar_eventos, reservar_vaga, cancelar_reserva, visualizar_detalhes_evento, salvar_dados, carregar_dados):
         print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
         "Para adicionar um evento - Digite 1\n" 
         "Para lista os eventos adicionados em nosso sistema - Digite 2\n"
@@ -85,15 +85,15 @@ if __name__ == "__main__":
     elif entrada == "2":
         return listar_eventos
     elif entrada == "3":
-            return reservar_vaga
+        return reservar_vaga
     elif entrada == "4":
-            return cancelar_reserva
+        return cancelar_reserva
     elif entrada == "5":
-            return visualizar_detalhes_evento
+        return visualizar_detalhes_evento
     elif entrada == "6":
-            return salvar_dados
+        return salvar_dados
     elif entrada == "7":
-            return carregar_dados
+        return carregar_dados
     else:
         print('Opção inválida!')
-        return menu
+    return menu
