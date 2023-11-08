@@ -64,14 +64,8 @@ def criar_evento ():
 
     if dt_evento and loc_evento not in eventos: #validar se um evento não coincide com outro 
         eventos[nome_evento] = {"Data":dt_evento,"Capacidade":cap_evento,"Localização":loc_evento}
-        print ("O evento foi criado com sucesso!\n")
-        tarefa_finalizada = (input("Deseja fazer mais alguma coisa?")).lower #caso o usuario queria realizar mais alguma tarefa
-    
-        if tarefa_finalizada == "sim":
-                    main()
-        else:
-            print ("Tudo bem! Volte sempre.")
-        
+        print ("O evento foi criado com sucesso!\n\n")
+
     else:
         print('A data e o local coincidem com de outro evento! Por favor, crie um outro evento com outra data e local')
 
