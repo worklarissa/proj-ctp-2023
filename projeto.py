@@ -50,7 +50,7 @@ def reservar_vaga(eventos):
                 print(f"Você selecionou o o ingresso para o {ingresso}")
                 eventos[ingresso]["Ingressos"]-=1
                 print(f"Você concluiu a reserva com sucesso o número de reserva é  {eventos[ingresso]['Ingressos']}")
-                resposta= input("Você deseja continuar comprando?: (sim/não)")
+                resposta= input("Você deseja continuar comprando? (sim/não): ")
             elif eventos[ingresso]["Ingressos"]<=0:
                 print("Sem ingressos!")
 
