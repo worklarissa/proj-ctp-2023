@@ -57,7 +57,7 @@ def visualizar_detalhes_evento(eventos):
 def salvar_dados(eventos, arquivo):
     """Essa função salva os eventos em um arquivo .json"""
     try:
-        with open('eventos.json', 'w') as a: #salvar a variável do arquivo
+        with open('eventos.json', 'w') as a:
             json.dump(eventos, a)
         print(f"Os eventos foram salvos com sucesso em {arquivo}")
     except:
@@ -67,7 +67,7 @@ def salvar_dados(eventos, arquivo):
 def carregar_dados(arquivo):
     """Essa função carrega os dados do sistema a partir de um arquivo .json. Confirma que os dados foram carregados com sucesso, informa erros para aquivos inexistentes ou corrompidos"""
     try:
-        with open('evento.json','r') as a:
+        with open(arquivo,'r') as a:
             json.load(a)
         print(f"Os eventos foram carregados com sucesso a partir de {arquivo}!")
     except FileNotFoundError:
