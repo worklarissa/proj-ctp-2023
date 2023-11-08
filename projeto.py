@@ -16,16 +16,65 @@ eventos = {
 } 
  
 
+def menu():
+    def menu():
+        while True:
+            print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
+            "Para adicionar um evento - Digite 1\n" 
+            "Para lista os eventos adicionados em nosso sistema - Digite 2\n"
+            "Para comprar um ingresso - Digite 3\n"
+            "Para cancelar a compra de um ingresso - Digite 4\n"
+            "Para visualizar detalhes de um evento - Digite 5\n"
+            "Para salvar dados do sistema em um arquivo - Digite 6\n"
+            "Para carregar um arquivo no sistema  - Digite 7\n"
+            "Para sair do sistema  - Digite 8")
+            entrada =  input("Digite um número de 1 a 8 de acordo com o menu: ")
 
-# def menu():
-"""Menu inicial de input, vai receber um int para selecionar 
-    um dos serviços que vamos ter"""
+            if entrada == "1":
+                criar_evento()
+            elif entrada == "2":
+                listar_eventos()
+            elif entrada == "3":
+                reservar_vaga ()
+            elif entrada == "4":
+                cancelar_reserva()
+            elif entrada == "5":
+                visualizar_detalhes_evento()
+            elif entrada == "6":
+                salvar_dados()
+            elif entrada == "7":
+                carregar_dados()
+            elif entrada == "8":
+                print ("Você está saindo do sistema!")
+                break
+            else:
+                print('Opção inválida!')     
+
+def criar_evento (): 
+    """permite o usuário a criar um novo evento,fornecendo, nome,data, 
+    capacidade e localização temos que criar um dicionário pra cada 
+    evento e armazenar no sistema."""
+    nome_evento = input("Nome do evento: ") #pede o nome do evento
+    if nome_evento not in eventos: #if e else para a validação do nome, se já existir um evento com esse nome não é possivel criar outro
+        dt_evento = input ("Data do evento: ")
+        cap_evento = int(input("Quantas pessoas podem participar? "))
+        if cap_evento >= 1 or cap_evento <= 1000000000: #validação para que a capacidade seja um número inteiro
+                loc_evento = input("Local do evento: ")    
+        else:
+             print ('A quantidade de pessoas precisa ser um valor inteiro')
+    else: 
+        print ('Já existe um evento cadastrado com esse nome!') 
+        return criar_evento()
+
+    if dt_evento and loc_evento not in eventos: #validar se um evento não coincide com outro 
+        eventos[nome_evento] = {"Data":dt_evento,"Capacidade":cap_evento,"Localização":loc_evento}
+        print ("O evento foi criado com sucesso!\n\n")
+
+    else:
+        print('A data e o local coincidem com de outro evento! Por favor, crie um outro evento com outra data e local')
     
 
-#  def criar_evento (): 
-"""Criar_Evento, permite o usuário a criar um novo evento,
- fornecendo, nome,data, capacidade e localização 
- temos que criar um dicionário pra cada evento e armazenar no sistema. """
+
 
     
 
@@ -98,10 +147,9 @@ cancelar_reserva(reserva)
 # def carregar_dados ():
 """ carrega os dados do sistema a partir de um arquivo. Deve confirmar que os dados foram carregados, incluir erros para arquivo inexistente ou corrompido"""
     
-#def menu():
-"reservar_vaga()"
+
 
                              
-#if __name__ == "__main__":
-"menu()"
+if __name__ == "__main__":
+    menu()
 
