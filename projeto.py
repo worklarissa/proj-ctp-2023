@@ -44,6 +44,7 @@ def reservar_vaga(eventos):
     reservas=[]
     while resposta =="sim":
         ingresso = input("Digite o nome do evento: ")
+        ingresso.rstrip()
         if ingresso in eventos:
             if eventos[ingresso]["Ingressos"]>0:
                 reservas.append(ingresso)
