@@ -54,8 +54,9 @@ def visualizar_detalhes_evento(eventos):
             print(f"{tipo}: {valor}")
 
                            
-def salvar_dados(eventos, arquivo):
+def salvar_dados(eventos):
     """Essa função salva os eventos em um arquivo .json"""
+    arquivo = input('Dê um nome para o arquivo em que os eventos serão salvos: ')
     try:
         with open(arquivo, 'w') as a:
             json.dump(eventos, a)
@@ -64,8 +65,9 @@ def salvar_dados(eventos, arquivo):
         print("Ocorreu um erro ao tentar salvar os eventos!")
 
                             
-def carregar_dados(arquivo):
+def carregar_dados():
     """Essa função carrega os dados do sistema a partir de um arquivo .json. Confirma que os dados foram carregados com sucesso, informa erros para aquivos inexistentes ou corrompidos"""
+    arquivo = input('Qual o nome do arquivo que você gostaria de importar? ')
     try:
         with open(arquivo,'r') as a:
             json.load(a)
@@ -80,12 +82,10 @@ def menu():
         user_op = input("Escolha uma opção:")
 
         if user_op == "1":
-            arquivo = input('Dê um nome para o arquivo em que os eventos serão salvos: ')
-            salvar_dados(eventos,arquivo)
+            salvar_dados(eventos)
 
         elif user_op == "2":
-            arquivo = input('Qual o nome do arquivo que você gostaria de importar? ')
-            carregar_dados(arquivo)
+            carregar_dados()
 
         elif user_op == "3":
             visualizar_detalhes_evento(eventos)
