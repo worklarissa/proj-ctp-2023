@@ -1,4 +1,6 @@
 #Divisão de tarefas 
+import json
+
 eventos = {
     "Rock in Rio": {
             "Data":"12/12/2023",
@@ -13,8 +15,7 @@ eventos = {
             "Ingressos":0
     }
 
-} 
- 
+}
 
 def menu():
     def menu():
@@ -48,7 +49,7 @@ def menu():
                 print ("Você está saindo do sistema!")
                 break
             else:
-                print('Opção inválida!')     
+                print('Opção inválida!')
 
 def criar_evento (): 
     """permite o usuário a criar um novo evento,fornecendo, nome,data, 
@@ -135,19 +136,36 @@ cancelar_reserva(reserva)
                  
     
 
-# def visualizar_detalhes_evento ():
-""" Exibe detalhes de um evento. Dados que deverá exibir: nome,
-      data, localização, capacidade e vagas disponíveis. Retorna esses detalhes"""
-    
+def visualizar_detalhes_evento(eventos):
+    """exibe os seguintes dados do evento: nome, data, localização, capacidade e vagas disponíveis"""
+    agenda = dict(sorted(eventos.items()))
+    print("DETALHE DOS EVENTOS")
+    for nome, evento in agenda.items():
+        print(f"\nNome: {nome}")
+        for tipo, valor in evento.items():
+            print(f"{tipo}: {valor}")
                            
-#  salvar_dados ():
-""" salva todos os dados do sistema (eventos, reservas e etc.) de um arquivo """
-    
+def salvar_dados(eventos):
+    """Essa função salva os eventos em um arquivo .json"""
+    arquivo = input('Dê um nome para o arquivo em que os eventos serão salvos: ')
+    try:
+        with open(arquivo, 'w') as a:
+            json.dump(eventos, a)
+        print(f"Os eventos foram salvos com sucesso em {arquivo}")
+    except:
+        print("Ocorreu um erro ao tentar salvar os eventos!")
                             
-# def carregar_dados ():
-""" carrega os dados do sistema a partir de um arquivo. Deve confirmar que os dados foram carregados, incluir erros para arquivo inexistente ou corrompido"""
-    
-
+def carregar_dados():
+    """Essa função carrega os dados do sistema a partir de um arquivo .json. Confirma que os dados foram carregados com sucesso, informa erros para aquivos inexistentes ou corrompidos"""
+    arquivo = input('Qual o nome do arquivo que você gostaria de importar? ')
+    try:
+        with open(arquivo,'r') as a:
+            json.load(a)
+        print(f"Os eventos foram carregados com sucesso a partir de {arquivo}!")
+    except FileNotFoundError:
+        print(f"O arquivo {arquivo} não foi encontrado!")
+    except:
+        print("Ocorreu um erro ao tentar carregar os eventos")
 
                              
 if __name__ == "__main__":
