@@ -18,7 +18,7 @@ eventos = {
 }
 
 def menu():
-    def menu():
+    def menu(): #tirar um desses def
         while True:
             print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
             "Para adicionar um evento - Digite 1\n" 
@@ -36,13 +36,13 @@ def menu():
             elif entrada == "2":
                 listar_eventos()
             elif entrada == "3":
-                reservar_vaga ()
+                reservar_vaga () #CHAMAR A FUNÇÃO CORRETAMENTE reservar_vaga(eventos)
             elif entrada == "4":
-                cancelar_reserva()
+                cancelar_reserva() #CHAMAR A FUNÇÃO CORRETAMENTE cancelar_reserva(eventos)
             elif entrada == "5":
-                visualizar_detalhes_evento()
+                visualizar_detalhes_evento() #CHAMAR A FUNÇÃO CORRETAMENTE visualizar_detalhes_evento(eventos)
             elif entrada == "6":
-                salvar_dados()
+                salvar_dados() #CHAMAR A FUNÇÃO CORRETAMENTE salvar_dados(eventos)
             elif entrada == "7":
                 carregar_dados()
             elif entrada == "8":
@@ -109,9 +109,10 @@ def reservar_vaga(eventos):
     
     return reservas
 
-print(eventos)
-reserva=reservar_vaga(eventos)                      
-print(reserva)                      
+print(eventos) ##FORA DE FUNÇÃO
+reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
+print(reserva)   #FORA DE FUNÇÃO
+
 def cancelar_reserva (reserva): 
     resposta="sim"
     cancelar=""
@@ -127,7 +128,7 @@ def cancelar_reserva (reserva):
             print("Você não tem nenhuma reserva deste evento!")
     return reserva
  
-cancelar_reserva(reserva)
+cancelar_reserva(reserva) #TIRAR ESSA, DUPLICADA
         
    
 
