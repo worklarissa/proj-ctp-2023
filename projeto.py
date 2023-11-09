@@ -18,38 +18,34 @@ eventos = {
 }
 
 def menu():
-    def menu(): #tirar um desses def
-        while True:
-            print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
+    while True:
+        print("Bem-vindo(a) ao sistema da LPEventos, escolha o que você quer fazer hoje:\n"
             "Para adicionar um evento - Digite 1\n" 
-            "Para lista os eventos adicionados em nosso sistema - Digite 2\n"
-            "Para comprar um ingresso - Digite 3\n"
-            "Para cancelar a compra de um ingresso - Digite 4\n"
-            "Para visualizar detalhes de um evento - Digite 5\n"
-            "Para salvar dados do sistema em um arquivo - Digite 6\n"
-            "Para carregar um arquivo no sistema  - Digite 7\n"
-            "Para sair do sistema  - Digite 8")
-            entrada =  input("Digite um número de 1 a 8 de acordo com o menu: ")
+            "Para comprar um ingresso - Digite 2\n"
+            "Para cancelar a compra de um ingresso - Digite 3\n"
+            "Para listar os eventos salvos em nosso sistema - Digite 4\n"
+            "Para salvar dados do sistema em um arquivo - Digite 5\n"
+            "Para carregar um arquivo no sistema  - Digite 6\n"
+            "Para sair do sistema  - Digite 7")
+        entrada =  input("Digite um número de 1 a 8 de acordo com o menu: ")
 
-            if entrada == "1":
-                criar_evento()
-            elif entrada == "2":
-                listar_eventos()
-            elif entrada == "3":
-                reservar_vaga () #CHAMAR A FUNÇÃO CORRETAMENTE reservar_vaga(eventos)
-            elif entrada == "4":
-                cancelar_reserva() #CHAMAR A FUNÇÃO CORRETAMENTE cancelar_reserva(eventos)
-            elif entrada == "5":
-                visualizar_detalhes_evento() #CHAMAR A FUNÇÃO CORRETAMENTE visualizar_detalhes_evento(eventos)
-            elif entrada == "6":
-                salvar_dados() #CHAMAR A FUNÇÃO CORRETAMENTE salvar_dados(eventos)
-            elif entrada == "7":
-                carregar_dados()
-            elif entrada == "8":
-                print ("Você está saindo do sistema!")
-                break
-            else:
-                print('Opção inválida!')
+        if entrada == "1":
+            criar_evento()
+        elif entrada == "2":
+            reservar_vaga (eventos) 
+        elif entrada == "3":
+            cancelar_reserva(eventos) 
+        elif entrada == "4":
+            visualizar_detalhes_evento(eventos) 
+        elif entrada == "5":
+            salvar_dados(eventos) 
+        elif entrada == "6":
+            carregar_dados()
+        elif entrada == "7":
+            print ("Você está saindo do sistema!")
+            break
+        else:
+            print('Opção inválida!')
 
 def criar_evento (): 
     """permite o usuário a criar um novo evento,fornecendo, nome,data, 
@@ -69,24 +65,11 @@ def criar_evento ():
 
     if dt_evento and loc_evento not in eventos: #validar se um evento não coincide com outro 
         eventos[nome_evento] = {"Data":dt_evento,"Capacidade":cap_evento,"Localização":loc_evento}
-        print ("O evento foi criado com sucesso!\n\n")
+        print ("\nO evento foi criado com sucesso!\n")
 
     else:
         print('A data e o local coincidem com de outro evento! Por favor, crie um outro evento com outra data e local')
     
-
-
-
-    
-
-# def  listar_eventos ():
-"""  Exibe uma lista de todos os eventos dísponives 
-    com todas as informações básicas.Apenas exibir lista de 
-    eventos formatada com detalhes."""    
-    
-
-
-       
 
 def reservar_vaga(eventos):
     ingresso=""
@@ -100,18 +83,24 @@ def reservar_vaga(eventos):
                 print(f"Você selecionou o o ingresso para o {ingresso}")
                 eventos[ingresso]["Ingressos"]-=1
                 print(f"Você concluiu a reserva com sucesso o número de reserva é  {eventos[ingresso]['Ingressos']}")
-                resposta= input("Você deseja continuar comprando?: (sim/não)")
+                resposta_continuar= input("Você deseja continuar comprando?: (sim/não)").lower
+                if resposta_continuar != "sim":
+                    print ("\n") 
+                    return menu() 
             elif eventos[ingresso]["Ingressos"]<=0:
                 print("Sem ingressos!")
-
         else:
             print("Opção inválida!")
     
     return reservas
+    print(eventos) ##FORA DE FUNÇÃO
+    reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
+    print(reserva)   #FORA DE FUNÇÃO
 
-print(eventos) ##FORA DE FUNÇÃO
-reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
-print(reserva)   #FORA DE FUNÇÃO
+#print(eventos) ##FORA DE FUNÇÃO
+#reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
+#print(reserva)   #FORA DE FUNÇÃO
+
 
 def cancelar_reserva (reserva): 
     resposta="sim"
@@ -128,7 +117,7 @@ def cancelar_reserva (reserva):
             print("Você não tem nenhuma reserva deste evento!")
     return reserva
  
-cancelar_reserva(reserva) #TIRAR ESSA, DUPLICADA
+#cancelar_reserva(reserva) #TIRAR ESSA, DUPLICADA
         
    
 
