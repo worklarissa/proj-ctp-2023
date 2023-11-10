@@ -93,31 +93,33 @@ def reservar_vaga(eventos):
             print("Opção inválida!")
     
     return reservas
-    print(eventos) ##FORA DE FUNÇÃO
-    reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
-    print(reserva)   #FORA DE FUNÇÃO
+    #print(eventos) #FORA DE FUNÇÃO
+    #reserva = reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
+    #print(reserva)   #FORA DE FUNÇÃO
 
 #print(eventos) ##FORA DE FUNÇÃO
 #reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
 #print(reserva)   #FORA DE FUNÇÃO
 
 
-def cancelar_reserva (reserva): 
+def cancelar_reserva (reserva):
     resposta="sim"
     cancelar=""
     print(f"Você tem reservas para o {reserva}")
     while resposta =="sim":
         cancelar=input("Qual reserva você deseja cancelar?: ")
         if cancelar in reserva:
-            reserva.remove(cancelar)
+            reserva.append(eventos)
             eventos[cancelar]["Ingressos"]+=1
             print("Você cancelou com sucesso!")
-            perguntar_continuar= input("Você deseja cancelar mais alguma reserva?:(sim/não)")
+            resposta= input("Você deseja cancelar mais alguma reserva?:(sim/não)")
         else:
             print("Você não tem nenhuma reserva deste evento!")
     return reserva
- 
+    
+    
 #cancelar_reserva(reserva) #TIRAR ESSA, DUPLICADA
+
         
    
 
