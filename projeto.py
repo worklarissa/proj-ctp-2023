@@ -93,13 +93,7 @@ def reservar_vaga(eventos):
     
     return reservas
 
-#print(eventos) #FORA DE FUNÇÃO
-#reserva = reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
-#print(reserva)   #FORA DE FUNÇÃO
 
-#print(eventos) ##FORA DE FUNÇÃO
-#reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
-#print(reserva)   #FORA DE FUNÇÃO
 
 
 def cancelar_reserva(eventos):
