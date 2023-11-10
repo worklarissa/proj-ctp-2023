@@ -1,18 +1,17 @@
-#Divisão de tarefas 
 import json
 
 eventos = {
     "Rock in Rio": {
-            "Data":"12/12/2023",
-            "Capacidade":"10,000",
-            "Localização":"Neo Química Arena",
+            "Data":"02/09/2024",
+            "Capacidade":"700.000",
+            "Localização":"Parque Olímpico",
             "Ingressos":500
     },
     "Lolapalooza": {
-            "Data":"15/01/2024",
-            "Capacidade":"15,000",
-            "Localização": "Maracanã",
-            "Ingressos":0
+            "Data":"22/03/2024",
+            "Capacidade":"100.000",
+            "Localização": "Autódromo de Interlagos",
+            "Ingressos":100
     }
 
 }
@@ -93,39 +92,27 @@ def reservar_vaga(eventos):
             print("Opção inválida!")
     
     return reservas
-    #print(eventos) #FORA DE FUNÇÃO
-    #reserva = reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
-    #print(reserva)   #FORA DE FUNÇÃO
+
+#print(eventos) #FORA DE FUNÇÃO
+#reserva = reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
+#print(reserva)   #FORA DE FUNÇÃO
 
 #print(eventos) ##FORA DE FUNÇÃO
 #reserva=reservar_vaga(eventos)   #FORA DE FUNÇÃO                 
 #print(reserva)   #FORA DE FUNÇÃO
 
 
-def cancelar_reserva (reserva):
+def cancelar_reserva(eventos):
     resposta="sim"
-    cancelar=""
-    print(f"Você tem reservas para o {reserva}")
     while resposta =="sim":
         cancelar=input("Qual reserva você deseja cancelar?: ")
-        if cancelar in reserva:
-            reserva.append(eventos)
+        if cancelar in eventos:
             eventos[cancelar]["Ingressos"]+=1
             print("Você cancelou com sucesso!")
             resposta= input("Você deseja cancelar mais alguma reserva?:(sim/não)")
         else:
             print("Você não tem nenhuma reserva deste evento!")
-    return reserva
-    
-    
-#cancelar_reserva(reserva) #TIRAR ESSA, DUPLICADA
 
-        
-   
-
-
-    
-                 
     
 
 def visualizar_detalhes_evento(eventos):
