@@ -1,5 +1,4 @@
 # Projeto LPEventos
-CP3- Computational Thinking Using Phyton
 
 # Descrição
 Somos uma empresa que criou um software para gerenciamento de eventos.Em nosso sistema é possivel:<br>
@@ -11,6 +10,6 @@ Somos uma empresa que criou um software para gerenciamento de eventos.Em nosso s
 
 # Colaboradores
 Esse Projeto foi produzido por:<br>
-Larissa Lopes Oliveira - Scrum Master e Desenvolvedora<br>
+Larissa Lopes Oliveira - Desenvolvedora<br>
 Luna Faustino Lima - Desenvolvedora<br>
 Pedro Luiz Prado - Desenvolvedor
